@@ -17,10 +17,11 @@ public class ClickListener implements ActionListener{
 
         for(int i=x-1; i<=x+1; i++){
             for(int j=y-1; j<=y+1; j++){
-                field.raise(i, j);
+                field.nextState(i, j);
             }
         }
 
     }
+
 
 }
