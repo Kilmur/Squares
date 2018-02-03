@@ -12,6 +12,7 @@ public class Squares {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Квадратики");
 
+
         frame.setVisible(true);
 
     }
