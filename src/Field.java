@@ -1,10 +1,9 @@
 
 public class Field {
-	int size, nStates;
-	int[][] field;
+	private int nStates;
+	private int[][] field;
 
 	public Field(int size, int nStates) {
-		this.size = size;
 		this.nStates = nStates;
 		this.field = new int[size][size];
 	}
