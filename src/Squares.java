@@ -1,6 +1,3 @@
-import java.awt.Color;
-import java.awt.GridLayout;
-
 import javax.swing.JFrame;
 
 public class Squares {
@@ -14,9 +11,6 @@ public class Squares {
         frame.setSize(400, 400);
 
         SquaresPanel squaresPanel = new SquaresPanel(SIZE, N_STATES);
-        squaresPanel.fillPanel(squaresPanel);
-        squaresPanel.setLayout(new GridLayout(SIZE, SIZE));
-
         frame.add(squaresPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
