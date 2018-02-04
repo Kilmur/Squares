@@ -17,11 +17,8 @@ public class Squares {
         squaresPanel.fillPanel(squaresPanel);
         squaresPanel.setLayout(new GridLayout(SIZE, SIZE));
 
-
         frame.add(squaresPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
     }
-
 }
