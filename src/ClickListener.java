@@ -20,8 +20,5 @@ public class ClickListener implements ActionListener{
                 field.nextState(i, j);
             }
         }
-
     }
-
-
 }

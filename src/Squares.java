@@ -16,12 +16,13 @@ public class Squares {
         squaresPanel.fillPanel(squaresPanel);
         squaresPanel.setLayout(new GridLayout(SIZE, SIZE));
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6b1532a6a4db78bc50cc93bde496392459fb3e44
         frame.add(squaresPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
     }
-
 }
