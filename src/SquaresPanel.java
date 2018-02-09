@@ -11,7 +11,7 @@ public class SquaresPanel extends JPanel {
     private CellButton[][] buttons;
     Field field;
 
-    public SquaresPanel(int size, int nStates) {
+    public SquaresPanel(int size, int nStates, int difficulty) {
         this.size = size;
         stateColors = new Color[]{
                 Color.WHITE, Color.RED, Color.ORANGE, Color.YELLOW,
@@ -22,7 +22,7 @@ public class SquaresPanel extends JPanel {
         if(nStates > stateColors.length) {
             this.nStates = stateColors.length;
         }
-        field = new Field(this.size, this.nStates);
+        field = new Field(this.size, this.nStates, this, difficulty);
         setLayout(new GridLayout(this.size, this.size));
         buttons = new CellButton[size][size];
         for(int i=0; i<size; i++) {
@@ -34,6 +34,7 @@ public class SquaresPanel extends JPanel {
                 add(button);
             }
         }
+        field.generate();
         ClickListener listener = new ClickListener(this, field);
         for(int i=1; i<size-1; i++) {
             for(int j=1; j<size-1; j++) {

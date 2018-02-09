@@ -21,5 +21,6 @@ public class ClickListener implements ActionListener{
             }
         }
         owner.updateButtonColors(x, y);
+        field.isWin();
     }
 }
