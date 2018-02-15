@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 public class ClickListener implements ActionListener{
 
     Field field;
@@ -21,6 +23,18 @@ public class ClickListener implements ActionListener{
             }
         }
         owner.updateButtonColors(x, y);
-        field.isWin();
+        if(field.isWin()) {
+            String[] options = {"New game", "Exit"};
+            int answer = JOptionPane.showOptionDialog(
+                    owner, "You solved it! Do you want to continue?", "Congratulations!",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]
+                    );
+            if(answer == JOptionPane.OK_OPTION) {
+                field.generate();
+                owner.updateButtonColors();
+            } else {
+                System.exit(0);
+            }
+        }
     }
 }
