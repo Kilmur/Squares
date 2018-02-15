@@ -22,25 +22,24 @@ public class SquaresPanel extends JPanel {
         if(nStates > stateColors.length) {
             this.nStates = stateColors.length;
         }
-        field = new Field(this.size, this.nStates, this, difficulty);
+        field = new Field(this.size, this.nStates, difficulty);
         setLayout(new GridLayout(this.size, this.size));
         buttons = new CellButton[size][size];
         for(int i=0; i<size; i++) {
             for(int j=0; j<size; j++) {
                 CellButton button = new CellButton(i, j);
-                button.setBackground(stateColors[0]);
                 button.setOpaque(true);
                 buttons[i][j] = button;
                 add(button);
             }
         }
-        field.generate();
         ClickListener listener = new ClickListener(this, field);
         for(int i=1; i<size-1; i++) {
             for(int j=1; j<size-1; j++) {
                 buttons[i][j].addActionListener(listener);
             }
         }
+        updateButtonColors();
     }
 
     public void updateButtonColors() {

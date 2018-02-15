@@ -4,15 +4,14 @@ public class Field {
     private int nStates;
     private int[][] field;
     private int size;
-    SquaresPanel squaresPanel;
     private int difficulty;
 
-    public Field(int size, int nStates, SquaresPanel squaresPanel, int difficulty) {
+    public Field(int size, int nStates, int difficulty) {
         this.nStates = nStates;
         this.field = new int[size][size];
         this.size = size;
-        this.squaresPanel = squaresPanel;
         this.difficulty = difficulty;
+        generate();
     }
 
     public int getState(int x, int y) {
