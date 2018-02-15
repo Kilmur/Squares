@@ -6,11 +6,11 @@ public class Squares {
 
     final static int SIZE = 10;
     final static int N_STATES = 5;
-    final static int DIFFICULTY = 10; // количество псевдонажатий для генерации случайного поля
+    final static int DIFFICULTY = 10;
 
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Квадратики");
+        JFrame frame = new JFrame("Squares");
         frame.setSize(400, 400);
 
         SquaresPanel squaresPanel = new SquaresPanel(SIZE, N_STATES, DIFFICULTY);
