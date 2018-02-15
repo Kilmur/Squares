@@ -37,7 +37,16 @@ public class Field {
         return true;
     }
 
+    public void clean() {
+        for(int x=0; x<size; x++) {
+            for(int y=0; y<size; y++) {
+                field[x][y] = 0;
+            }
+        }
+    }
+
     public void generate() {
+        clean();
         Random random = new Random();
         int x, y;
         for(int s=0; s<difficulty; s++) {
