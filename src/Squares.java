@@ -6,7 +6,7 @@ public class Squares {
 
     final static int SIZE = 10;
     final static int N_STATES = 5;
-    final static int DIFFICULTY = 10;
+    final static int DIFFICULTY = 30;
 
     public static void main(String[] args) {
 
