@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Field {
     private int nStates;
     private int[][] field;
@@ -14,46 +16,47 @@ public class Field {
     }
 
     public int getState(int x, int y) {
-        return this.field[x][y];
+        return field[x][y];
     }
 
     public void nextState(int x, int y) {
-        this.field[x][y] = (this.field[x][y] + 1) % this.nStates;
+        field[x][y] = (field[x][y] + 1) % nStates;
     }
 
-    public void isWin(){
+    public void previousState(int x, int y) {
+        field[x][y] = (field[x][y] + nStates - 1) % nStates;
+    }
+
+    public void isWin() {
         boolean c = true;
-        for(int x=0; x<size; x++){
-            for(int y=0; y<size; y++){
-                if(field[x][y]==field[0][0]){
+        for(int x=0; x<size; x++) {
+            for(int y=0; y<size; y++) {
+                if(field[x][y]==field[0][0]) {
                     continue;
-                }else{
+                } else {
                     c = false;
                     break;
                 }
             }
-            if(!c){break;}
+            if(!c) {break;}
         }
-        if(c){
+        if(c) {
             WinnerWindow winnerWindow = new WinnerWindow(this);
             winnerWindow.createWindow();
         }
     }
 
-    public void generate(){
-        int x;
-        int y;
-        for(int s =0; s<difficulty; s++){
-            x = (int) ((Math.random()) * (size-2))+1;
-            y = (int) ((Math.random()) * (size-2))+1;
-            for(int i=x-1; i<=x+1; i++){
-                for(int j=y-1; j<=y+1; j++){
-                    this.nextState(i, j);
+    public void generate() {
+        Random random = new Random();
+        int x, y;
+        for(int s=0; s<difficulty; s++) {
+            x = random.nextInt(size-1) + 1;
+            y = random.nextInt(size-2) + 1;
+            for(int i=x-1; i<=x+1; i++) {
+                for(int j=y-1; j<=y+1; j++) {
+                    previousState(i, j);
                 }
             }
         }
-        squaresPanel.updateButtonColors();
-
-
     }
 }
