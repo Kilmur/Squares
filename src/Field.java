@@ -27,23 +27,15 @@ public class Field {
         field[x][y] = (field[x][y] + nStates - 1) % nStates;
     }
 
-    public void isWin() {
-        boolean c = true;
+    public boolean isWin() {
         for(int x=0; x<size; x++) {
             for(int y=0; y<size; y++) {
-                if(field[x][y]==field[0][0]) {
-                    continue;
-                } else {
-                    c = false;
-                    break;
+                if(field[x][y] != 0) {
+                    return false;
                 }
             }
-            if(!c) {break;}
         }
-        if(c) {
-            WinnerWindow winnerWindow = new WinnerWindow(this);
-            winnerWindow.createWindow();
-        }
+        return true;
     }
 
     public void generate() {
