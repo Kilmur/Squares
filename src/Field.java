@@ -41,7 +41,7 @@ public class Field {
         Random random = new Random();
         int x, y;
         for(int s=0; s<difficulty; s++) {
-            x = random.nextInt(size-1) + 1;
+            x = random.nextInt(size-2) + 1;
             y = random.nextInt(size-2) + 1;
             for(int i=x-1; i<=x+1; i++) {
                 for(int j=y-1; j<=y+1; j++) {
