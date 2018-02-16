@@ -25,18 +25,17 @@ public class SquaresPanel extends JPanel {
         field = new Field(this.size, this.nStates, difficulty);
         setLayout(new GridLayout(this.size, this.size));
         buttons = new CellButton[size][size];
+        ClickListener listener = new ClickListener(this, field);
         for(int i=0; i<size; i++) {
             for(int j=0; j<size; j++) {
                 CellButton button = new CellButton(i, j);
+                if(i==0 || i==size-1 || j==0 || j==size-1)
+                    button.setEnabled(false);
+                else
+                    button.addActionListener(listener);
                 button.setOpaque(true);
                 buttons[i][j] = button;
                 add(button);
-            }
-        }
-        ClickListener listener = new ClickListener(this, field);
-        for(int i=1; i<size-1; i++) {
-            for(int j=1; j<size-1; j++) {
-                buttons[i][j].addActionListener(listener);
             }
         }
         updateButtonColors();
