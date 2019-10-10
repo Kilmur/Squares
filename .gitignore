@@ -1,3 +1,5 @@
+.rsync-filter
+
 bin/*
 /bin/
 .settings/*
